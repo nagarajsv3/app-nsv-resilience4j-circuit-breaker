@@ -1,0 +1,75 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building app-nsv-springboot-resilience4j 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.1.1:tree (default-cli) @ app-nsv-springboot-resilience4j ---
+[INFO] com.nsv.jsmbaba:app-nsv-springboot-resilience4j:jar:0.0.1-SNAPSHOT
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:2.1.13.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.1.13.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:2.1.13.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:2.1.13.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:2.1.13.RELEASE:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.2.3:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.2.3:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.11.2:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.11.2:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+[INFO] |  |  +- javax.annotation:javax.annotation-api:jar:1.3.2:compile
+[INFO] |  |  +- org.springframework:spring-core:jar:5.1.14.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-jcl:jar:5.1.14.RELEASE:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.23:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:2.1.13.RELEASE:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.10.3:compile
+[INFO] |  |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.10:compile
+[INFO] |  |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.9.10:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.9.10:compile
+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.9.10:compile
+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.9.10:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:2.1.13.RELEASE:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.31:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.31:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.31:compile
+[INFO] |  +- org.hibernate.validator:hibernate-validator:jar:6.0.18.Final:compile
+[INFO] |  |  +- javax.validation:validation-api:jar:2.0.1.Final:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.3.3.Final:compile
+[INFO] |  |  \- com.fasterxml:classmate:jar:1.4.0:compile
+[INFO] |  +- org.springframework:spring-web:jar:5.1.14.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-beans:jar:5.1.14.RELEASE:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:5.1.14.RELEASE:compile
+[INFO] |     +- org.springframework:spring-context:jar:5.1.14.RELEASE:compile
+[INFO] |     \- org.springframework:spring-expression:jar:5.1.14.RELEASE:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-actuator:jar:2.1.13.RELEASE:compile
+[INFO] |  +- org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.1.13.RELEASE:compile
+[INFO] |  |  \- org.springframework.boot:spring-boot-actuator:jar:2.1.13.RELEASE:compile
+[INFO] |  \- io.micrometer:micrometer-core:jar:1.1.10:compile
+[INFO] |     +- org.hdrhistogram:HdrHistogram:jar:2.1.9:compile
+[INFO] |     \- org.latencyutils:LatencyUtils:jar:2.0.3:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-aop:jar:2.1.13.RELEASE:compile
+[INFO] |  +- org.springframework:spring-aop:jar:5.1.14.RELEASE:compile
+[INFO] |  \- org.aspectj:aspectjweaver:jar:1.9.5:compile
+[INFO] +- io.github.resilience4j:resilience4j-spring-boot2:jar:1.4.0:compile
+[INFO] |  +- io.vavr:vavr:jar:0.10.2:compile
+[INFO] |  |  \- io.vavr:vavr-match:jar:0.10.2:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.30:compile
+[INFO] |  +- io.github.resilience4j:resilience4j-spring:jar:1.4.0:compile
+[INFO] |  |  +- io.github.resilience4j:resilience4j-annotations:jar:1.4.0:compile
+[INFO] |  |  +- io.github.resilience4j:resilience4j-consumer:jar:1.4.0:compile
+[INFO] |  |  |  +- io.github.resilience4j:resilience4j-core:jar:1.4.0:compile
+[INFO] |  |  |  \- io.github.resilience4j:resilience4j-circularbuffer:jar:1.4.0:compile
+[INFO] |  |  \- io.github.resilience4j:resilience4j-framework-common:jar:1.4.0:compile
+[INFO] |  |     +- io.github.resilience4j:resilience4j-circuitbreaker:jar:1.4.0:compile
+[INFO] |  |     +- io.github.resilience4j:resilience4j-ratelimiter:jar:1.4.0:compile
+[INFO] |  |     +- io.github.resilience4j:resilience4j-retry:jar:1.4.0:compile
+[INFO] |  |     +- io.github.resilience4j:resilience4j-bulkhead:jar:1.4.0:compile
+[INFO] |  |     \- io.github.resilience4j:resilience4j-timelimiter:jar:1.4.0:compile
+[INFO] |  \- io.github.resilience4j:resilience4j-micrometer:jar:1.4.0:compile
+[INFO] \- org.projectlombok:lombok:jar:1.18.10:provided
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.422 s
+[INFO] Finished at: 2020-05-27T13:28:02-04:00
+[INFO] Final Memory: 25M/228M
+[INFO] ------------------------------------------------------------------------
