@@ -1,0 +1,27 @@
+resilience4j:
+  circuitbreaker:
+    instances:
+      addservice:
+        registerHealthIndicator: true
+        #ringBufferSizeInClosedState: -5
+        #ringBufferSizeInHalfOpenState: -3
+        slidingWindowSize: 15 #bufferedCalls
+        minimumNumberOfCalls: 10 # Minimum Calls in Closed Status - Once matched failure threshold is computed
+        permittedNumberOfCallsInHalfOpenState: 5 #number of calls in half open state - computer failure threshold
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 40
+        eventConsumerBufferSize: 20
+        recordExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.net.SocketTimeoutException
+          - java.util.concurrent.TimeoutException
+          - org.springframework.web.client.ResourceAccessException
+        ignoreExceptions:
+
+management.endpoints.enabled-by-default: true
+management.endpoints.web.exposure.include: '*'
+
+management.endpoint.health.show-details: always
+management.health.diskspace.enabled: false
+management.health.circuitbreakers.enabled: true

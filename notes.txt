@@ -1,0 +1,35 @@
+https://resilience4j.readme.io/docs/getting-started-3
+https://github.com/resilience4j/resilience4j
+https://www.youtube.com/watch?v=NHVxrLb3jFI
+
+https://github.com/resilience4j/resilience4j-spring-boot2-demo
+https://github.com/resilience4j/resilience4j-spring-boot-demo
+https://resilience4j.readme.io/docs/getting-started-3
+https://www.youtube.com/watch?v=VPvmP64VlMo&list=PLq3uEqRnr_2GlhVSqltfLtpO8GF4VIICY&index=4
+https://resilience4j.readme.io/docs
+https://frandorado.github.io/spring/2019/01/04/circuitbreaker-resilience4j-spring.html Diagram
+
+resilience4j.circuitbreaker:
+  instances:
+    addservice:
+      registerHealthIndicator: true
+      ringBufferSizeInClosedState: 5
+      ringBufferSizeInHalfOpenState: 1
+      withDurationInOpenState: 10s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.net.SocketTimeoutException
+        - java.util.concurrent.TimeoutException
+      ignoreExceptions:
+
+2020-05-26 13:15:58.067  INFO 11108 --- [           main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/circuitbreakers],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2020-05-26 13:15:58.067  INFO 11108 --- [           main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/circuitbreakerevents],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2020-05-26 13:15:58.068  INFO 11108 --- [           main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/circuitbreakerevents/{name}/{eventType}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+2020-05-26 13:15:58.068  INFO 11108 --- [           main] s.b.a.e.w.s.WebMvcEndpointHandlerMapping : Mapped "{[/actuator/circuitbreakerevents/{name}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>)
+
+
+http://localhost:8080/actuator/health
+http://localhost:8080/actuator/circuitbreakers
+http://localhost:8080/actuator/circuitbreakerevents/addservice
