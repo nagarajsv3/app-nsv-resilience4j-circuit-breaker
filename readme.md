@@ -94,4 +94,56 @@ resilience4j.circuitbreaker:
 To retrieve a metric, make a GET request to /actuator/metrics/{metric.name}.
 For example: /actuator/metrics/resilience4j.circuitbreaker.calls
 
-When you want to publish CircuitBreaker endpoints on the Prometheus endpoint, you have to add the dependency io.micrometer:micrometer-registry-prometheus.       
+When you want to publish CircuitBreaker endpoints on the Prometheus endpoint, you have to add the dependency io.micrometer:micrometer-registry-prometheus.
+
+
+**_Bulkhead**_ 
+1. Resilience4j Bulkhead is used to limit the number of concurrent execution.
+    SemaphoreBulkhead
+    FixedThreadPoolBulkhead
+2. Add annotations
+    //@Bulkhead(name="addservicebhSemaphore", fallbackMethod = "addItemBulkheadSemaphoreFallBack", type = Bulkhead.Type.SEMAPHORE)
+    @Bulkhead(name="addservicebhFixedThreadPool", fallbackMethod = "addItemFixedBulkheadThreadFallBack", type = Bulkhead.Type.THREADPOOL)
+3. Update the config file with 
+resilience4j:
+  bulkhead:
+    instances:
+      addservicebhSemaphore:
+        maxWaitDuration: 10ms
+        maxConcurrentCall : 1
+  thread-pool-bulkhead:
+    instances:
+      addservicebhFixedThreadPool:
+        maxThreadPoolSize: 1
+        coreThreadPoolSize: 1
+        queueCapacity: 5
+       
+**_RateLimiter_**
+1. Used to control the rate of traffic sent or received       
+2. @RateLimiter(name="addServiceRateLimiter",fallbackMethod = "addItemRateLimiterFallBack")
+3. 
+resilience4j:
+  ratelimiter:
+    instances:
+      addItemRateLimiterFallBack:
+        limitForPeriod: 2
+        limitRefreshPeriod: 10000
+        timeoutDuration: 1000ms
+        
+**_Retry_**
+1. Used to control the rate of traffic sent or received       
+2. @Retry(name="addServiceRateLimiter",fallbackMethod = "addItemRateLimiterFallBack")
+3. 
+resilience4j:
+  retry:
+    instances:
+      addItemRateLimiterFallBack:
+        limitForPeriod: 2
+        limitRefreshPeriod: 10000
+        timeoutDuration: 1000ms        
+        
+
+
+        
+Micrometer , Prometheus , Graphana
+1. Add the dependency

@@ -24,10 +24,10 @@ public class AppConfig {
         SimpleClientHttpRequestFactory clientHttpRequestFactory
                 = new SimpleClientHttpRequestFactory();
         //Connect timeout
-        clientHttpRequestFactory.setConnectTimeout(1000);
+        clientHttpRequestFactory.setConnectTimeout(30000);
 
         //Read timeout
-        clientHttpRequestFactory.setReadTimeout(1000);
+        clientHttpRequestFactory.setReadTimeout(30000);
         return clientHttpRequestFactory;
     }
 }

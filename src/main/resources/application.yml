@@ -18,6 +18,31 @@ resilience4j:
           - java.util.concurrent.TimeoutException
           - org.springframework.web.client.ResourceAccessException
         ignoreExceptions:
+  bulkhead:
+    instances:
+      addservicebhSemaphore:
+        maxWaitDuration: 10ms
+        maxConcurrentCall : 1
+  thread-pool-bulkhead:
+    instances:
+      addservicebhFixedThreadPool:
+        maxThreadPoolSize: 1
+        coreThreadPoolSize: 1
+        queueCapacity: 5
+
+  ratelimiter:
+    instances:
+      addItemRateLimiterFallBack:
+        limitForPeriod: 2
+        limitRefreshPeriod: 10000
+        timeoutDuration: 1000ms
+
+  retry:
+    instances:
+      addItemRateLimiterFallBack:
+        maxRetryAttempts: 4
+        waitDuration: 1000
+
 
 management.endpoints.enabled-by-default: true
 management.endpoints.web.exposure.include: '*'
@@ -25,3 +50,5 @@ management.endpoints.web.exposure.include: '*'
 management.endpoint.health.show-details: always
 management.health.diskspace.enabled: false
 management.health.circuitbreakers.enabled: true
+
+
